@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -17,6 +17,20 @@
             -webkit-text-fill-color: transparent;
         }
         .terminal-bg { background-color: #0f172a; }
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #4ade80; /* Cursor color */
+            animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #4ade80; }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased selection:bg-blue-100 selection:text-blue-900">
@@ -56,7 +70,7 @@
             Includes built-in circuit breakers to prevent runaway API bills.
         </p>
 
-        <!-- Waitlist Form -->
+        <!-- Waitlist Form (Connected to your Formspree) -->
         <div id="waitlist" class="max-w-md mx-auto mb-16">
             <form action="https://formspree.io/f/xkgdkwrb" method="POST" class="flex flex-col sm:flex-row gap-3">
                 <input type="email" name="email" placeholder="dev@agency.com" required 
@@ -70,7 +84,7 @@
             </p>
         </div>
 
-<!-- Terminal Demo (The Hook) -->
+        <!-- Terminal Demo (The Hook) - Fixed & Clear -->
         <div class="max-w-3xl mx-auto text-left shadow-2xl rounded-xl overflow-hidden terminal-bg text-gray-100 font-mono text-sm border border-gray-700 relative group transform hover:scale-[1.01] transition duration-500">
             <!-- Header -->
             <div class="bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-700">
@@ -120,6 +134,7 @@
                 </div>
             </div>
         </div>
+    </section>
 
     <!-- Features Grid -->
     <section id="features" class="py-24 bg-white border-y border-gray-100">
